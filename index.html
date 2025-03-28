@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dota 2 - Лучший сайт</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="header-image">
+            <img src="images/1523150170_0uueOOL.jpg" alt="Dota 2 Header">
+            <div class="header-overlay">
+                <h1>Добро пожаловать в мир Dota 2!</h1>
+                <p>Исследуйте героев, гайды и турниры</p>
+                <button class="cta-button" onclick="scrollToSection('heroes')">Начать</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Навигация -->
+    <nav>
+        <ul>
+            <li><a href="#heroes" onclick="scrollToSection('heroes')">Герои</a></li>
+            <li><a href="#guides" onclick="scrollToSection('guides')">Гайды</a></li>
+            <li><a href="#tournaments" onclick="scrollToSection('tournaments')">Турниры</a></li>
+            <li><a href="#community" onclick="scrollToSection('community')">Сообщество</a></li>
+        </ul>
+    </nav>
+
+    <!-- Основной контент -->
+    <main>
+        <!-- Раздел "Герои" -->
+        <section id="heroes" class="section-block">
+            <h2>Герои Dota 2</h2>
+            <p>Исследуйте всех героев Dota 2 и их способности.</p>
+            <div class="dropdown">
+                <button class="interactive-button" onclick="toggleDropdown('heroes-list')">Показать героев</button>
+                <div id="heroes-list" class="dropdown-content hidden">
+                    <div class="hero-card">
+                        <img src="images/axe.png" alt="Axe">
+                        <h3>Axe</h3>
+                        <p>Танк и инициатор.</p>
+                    </div>
+                    <div class="hero-card">
+                        <img src="images/juggernaut.png" alt="Juggernaut">
+                        <h3>Juggernaut</h3>
+                        <p>Керри с мощными способностями.</p>
+                    </div>
+                    <div class="hero-card">
+                        <img src="images/lina.png" alt="Lina">
+                        <h3>Lina</h3>
+                        <p>Маг с высоким уроном.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Новые кнопки и блоки -->
+        <section class="dropdown">
+            <button class="interactive-button" onclick="toggleSection('updates-list')">Последние обновления</button>
+            <button class="interactive-button" onclick="toggleSection('schedule-list')">Расписание игр</button>
+            <button class="interactive-button" onclick="toggleSection('tournaments-list')">Ближайшие турниры</button>
+            <button class="interactive-button" onclick="toggleSection('patch-notes-list')">Заметки о патчах</button>
+            <button class="interactive-button" onclick="toggleSection('community-events-list')">События сообщества</button>
+
+            <!-- Контент для новых кнопок -->
+            <div id="updates-list" class="hidden">
+                <h3>Последние обновления</h3>
+                <ul>
+                    <li>Патч 7.34: Баланс героев и исправления багов.</li>
+                    <li>Новый герой: Muerta.</li>
+                    <li>Обновление интерфейса магазина.</li>
+                </ul>
+            </div>
+
+            <div id="schedule-list" class="hidden">
+                <h3>Расписание игр</h3>
+                <ul>
+                    <li>15 октября: The International 2024 - Финал.</li>
+                    <li>20 октября: DPC 2024 - Начало сезона.</li>
+                    <li>25 октября: Матч-реванш Team Spirit vs LGD.</li>
+                </ul>
+            </div>
+
+            <div id="tournaments-list" class="hidden">
+                <h3>Ближайшие турниры</h3>
+                <ul>
+                    <li>The International 2024 - $40 млн призовых.</li>
+                    <li>DPC 2024 - Квалификации на TI.</li>
+                    <li>DreamLeague Season 20 - Крупный онлайн-турнир.</li>
+                </ul>
+            </div>
+
+            <div id="patch-notes-list" class="hidden">
+                <h3>Заметки о патчах</h3>
+                <ul>
+                    <li>7.34: Увеличение урона от способностей.</li>
+                    <li>7.33: Изменения карты и нейтральных крипов.</li>
+                    <li>7.32: Баланс героев и новые предметы.</li>
+                </ul>
+            </div>
+
+            <div id="community-events-list" class="hidden">
+                <h3>События сообщества</h3>
+                <ul>
+                    <li>Киберспортивный фестиваль в Москве.</li>
+                    <li>Онлайн-турнир для новичков.</li>
+                    <li>Стримерский марафон с призами.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Раздел "Гайды" -->
+        <section id="guides" class="dropdown">
+            <h2>Гайды по Dota 2</h2>
+            <p>Улучшите свои навыки с нашими гайдами.</p>
+            <button class="interactive-button" onclick="toggleSection('guides-list')">Показать гайды</button>
+            <div id="guides-list" class="hidden">
+                <div class="guide-card">
+                    <h3>Гайд для начинающих</h3>
+                    <p>Основы игры и советы для новичков.</p>
+                    <button class="cta-button" onclick="openModal()">Читать</button>
+                </div>
+                <div class="guide-card">
+                    <h3>Гайд для продвинутых</h3>
+                    <p>Стратегии и тактики для опытных игроков.</p>
+                    <button class="cta-button" onclick="openModal()">Читать</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Раздел "Турниры" -->
+        <section id="tournaments" class="section-block">
+            <h2>Турниры</h2>
+            <p>Следите за последними турнирами по Dota 2.</p>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/156f9c28b1e9421188f91a8c4f2535ad.jpg" alt="Tournament 1">
+                        <div class="flip-card-text">
+                            <h3>The International 2024</h3>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Крупнейший турнир по Dota 2 с призовым фондом в $40 млн.</p>
+                        <button class="cta-button" onclick="openModal()">Узнать больше</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Раздел "Сообщество" -->
+        <section id="community" class="section-block">
+            <h2>Сообщество</h2>
+            <p>Присоединяйтесь к нашему сообществу!</p>
+            <button class="cta-button" onclick="openModal()">Присоединиться</button>
+        </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer>
+        <p align="center">&copy; 2024 Dota 2</p>
+    </footer>
+
+    <!-- Модальное окно -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal1')">&times;</span>
+            <h2>Присоединяйтесь к сообществу Dota 2!</h2>
+            <form>
+                <input type="text" placeholder="Имя" required>
+                <input type="email" placeholder="Email" required>
+                <button type="submit" class="cta-button">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

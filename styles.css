@@ -1,0 +1,719 @@
+:root {
+    --primary-color: #ff5722;
+    --secondary-color: #4CAF50;
+    --background-color: #1e1e1e;
+    --text-color: #fff;
+    --sidebar-bg: #444;
+    --content-bg: #555;
+    --card-bg: #333;
+    --modal-bg: #6e6e6e;
+    --hover-color: #e64a19;
+}
+
+/* Общие стили для body */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    position: relative;
+}
+
+/* Псевдоэлемент для фонового изображения */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('C:\Users\student\Desktop\Site\CSS\фон.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+/* Затемненный слой поверх фона */
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
+
+/* Основной контент */
+main {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+/* Стили для боковых колонок */
+.sidebar {
+    background-color: var(--sidebar-bg);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Стили для центрального контента */
+.main-content {
+    background-color: var(--content-bg);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.main-content h2 {
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+.main-content p {
+    font-size: 1.2rem;
+}
+
+/* Стили для header */
+header {
+    position: relative;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.header-image img {
+    width: 100%;
+    height: auto;
+}
+
+.header-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.header-overlay h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.header-overlay p {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.cta-button {
+    background-color: var(--primary-color);
+    border: none;
+    color: var(--text-color);
+    padding: 15px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: var(--hover-color);
+}
+
+/* Стили для навигации */
+nav {
+    background-color: var(--card-bg);
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Стили для карточек героев */
+.hero-card {
+    width: 200px;
+    text-align: center;
+    margin: 10px;
+    background-color: var(--card-bg);
+    padding: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hero-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hero-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.hero-card h3 {
+    margin: 10px 0 5px;
+    font-size: 1.2rem;
+}
+
+.hero-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* Стили для флип-карточек */
+.flip-card {
+    width: 200px;
+    height: 250px;
+    perspective: 1000px;
+    margin: 20px auto;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.flip-card-front {
+    background-color: var(--sidebar-bg);
+    color: var(--text-color);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.flip-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.flip-card-text {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: var(--text-color);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    width: 90%;
+}
+
+.flip-card-text h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.flip-card-back {
+    background-color: var(--content-bg);
+    color: var(--text-color);
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.flip-card-back p {
+    margin: 0 0 10px 0;
+    font-size: 0.9rem;
+}
+
+/* Стили для модальных окон */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: var(--modal-bg);
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+
+/* Стили для выпадающего списка */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.dropdown button {
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown button:hover {
+    background-color: #45a049;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    width: 200px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.dropdown-content .hero-card {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dropdown-content .hero-card:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content .hero-card img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* Стили для футера */
+footer {
+    background-color: var(--card-bg);
+    padding: 10px;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar, .main-content {
+        margin-bottom: 20px;
+    }
+
+    .header-overlay h1 {
+        font-size: 2rem;
+    }
+
+    .header-overlay p {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+.cta-button:hover {
+    background-color: var(--hover-color);
+}
+
+/* Стили для навигации */
+nav {
+    background-color: var(--card-bg);
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Стили для карточек героев */
+.hero-card {
+    width: 200px;
+    text-align: center;
+    margin: 10px;
+    background-color: var(--card-bg);
+    padding: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hero-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hero-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.hero-card h3 {
+    margin: 10px 0 5px;
+    font-size: 1.2rem;
+}
+
+.hero-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* Стили для флип-карточек */
+.flip-card {
+    width: 200px;
+    height: 250px;
+    perspective: 1000px;
+    margin: 20px auto;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.flip-card-front {
+    background-color: var(--sidebar-bg);
+    color: var(--text-color);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.flip-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.flip-card-text {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: var(--text-color);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    width: 90%;
+}
+
+.flip-card-text h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.flip-card-back {
+    background-color: var(--content-bg);
+    color: var(--text-color);
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.flip-card-back p {
+    margin: 0 0 10px 0;
+    font-size: 0.9rem;
+}
+
+/* Стили для модальных окон */
+.hidden {
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}
+.close:hover {
+    color: #000;
+}
+
+/* Стили для выпадающего списка */
+.hidden {
+    display: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.dropdown button {
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    width: 200px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+.dropdown button:hover {
+    background-color: #45a049;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    width: 200px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.dropdown-content .hero-card {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dropdown-content .hero-card:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content .hero-card img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.dropdown-content.hidden {
+    display: none;
+}
+
+.dropdown-content:not(.hidden) {
+    display: block;
+}
+
+/* Стили для футера */
+footer {
+    background-color: var(--card-bg);
+    padding: 10px;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar, .main-content {
+        margin-bottom: 20px;
+    }
+
+    .header-overlay h1 {
+        font-size: 2rem;
+    }
+
+    .header-overlay p {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
